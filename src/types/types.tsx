@@ -20,3 +20,7 @@ export interface JobListingInterface {
 export interface JobListingsInterface {
   isHome: boolean;
 }
+
+export interface SpinnerInterface {
+  loading: boolean;
+}
