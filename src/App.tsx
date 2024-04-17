@@ -5,10 +5,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import HomePage from "../pages/HomePage";
-import MainLayout from "../layouts/MainLayout";
-import JobPage from "../pages/JobPage";
-import NotFoundPage from "../pages/NotFoundPage";
+import HomePage from "./pages/HomePage";
+import MainLayout from "./layouts/MainLayout";
+import JobPage from "./pages/JobPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
