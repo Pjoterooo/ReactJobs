@@ -16,3 +16,7 @@ export interface JobsInterface {
 export interface JobListingInterface {
   job: JobsInterface;
 }
+
+export interface JobListingsInterface {
+  isHome: boolean;
+}
