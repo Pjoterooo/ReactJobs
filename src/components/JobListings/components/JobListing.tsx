@@ -1,8 +1,8 @@
 import { useState } from "react";
-import {FaMapMarker} from "react-icons/fa"
+import { FaMapMarker } from "react-icons/fa";
 import { JobListingInterface } from "../../../types/types";
 
-export const JobListing: React.FC<JobListingInterface> = ({ job }) => {
+const JobListing: React.FC<JobListingInterface> = ({ job }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   let description = job.description;
@@ -33,7 +33,7 @@ export const JobListing: React.FC<JobListingInterface> = ({ job }) => {
 
         <div className="flex flex-col lg:flex-row justify-between mb-4">
           <div className="text-orange-700 mb-3">
-            <FaMapMarker className="inline text-lg mb-1 mr-1"/>
+            <FaMapMarker className="inline text-lg mb-1 mr-1" />
             {job.location}
           </div>
           <a
@@ -47,3 +47,5 @@ export const JobListing: React.FC<JobListingInterface> = ({ job }) => {
     </div>
   );
 };
+
+export default JobListing;
