@@ -2,6 +2,7 @@ import { Link, useLoaderData, useParams, useNavigate } from "react-router-dom";
 import { JobPageInterface, JobsInterface } from "../types/types";
 import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
 
+// eslint-disable-next-line react-refresh/only-export-components
 const JobPage: React.FC<JobPageInterface> = ({ deleteJob }) => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -101,4 +102,10 @@ const JobPage: React.FC<JobPageInterface> = ({ deleteJob }) => {
   );
 };
 
-export default JobPage;
+const jobLoader = async ({ params }) => {
+  const res = await fetch(`/api/jobs/${params.id}`);
+  const data = await res.json();
+  return data;
+};
+
+export { JobPage as default, jobLoader };
