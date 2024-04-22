@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { AddJobPageInterface, JobsInterface } from "../types/types";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const AddJobPage:React.FC<AddJobPageInterface> = ({ addJobSubmit }) => {
+const AddJobPage: React.FC<AddJobPageInterface> = ({ addJobSubmit }) => {
   const [title, setTitle] = useState<string>("");
   const [type, setType] = useState<string>("Full-Time");
   const [description, setDescription] = useState<string>("");
@@ -32,7 +33,7 @@ const AddJobPage:React.FC<AddJobPageInterface> = ({ addJobSubmit }) => {
       },
     };
     addJobSubmit(newJob);
-
+    toast.success(`Job added successfully`);
     return navigate("/jobs");
   };
 
