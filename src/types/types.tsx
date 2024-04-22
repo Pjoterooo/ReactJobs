@@ -1,5 +1,5 @@
 export interface JobsInterface {
-  id: string;
+  id?: string;
   title: string;
   type: string;
   description: string;
@@ -23,4 +23,8 @@ export interface JobListingsInterface {
 
 export interface SpinnerInterface {
   loading: boolean;
+}
+
+export interface AddJobPageInterface {
+  addJobSubmit: (newJob: JobsInterface) => void;
 }

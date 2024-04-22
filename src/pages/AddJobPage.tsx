@@ -1,21 +1,46 @@
 import { useState } from "react";
+import { AddJobPageInterface, JobsInterface } from "../types/types";
+import { useNavigate } from "react-router-dom";
 
-const AddJobPage = () => {
+const AddJobPage:React.FC<AddJobPageInterface> = ({ addJobSubmit }) => {
   const [title, setTitle] = useState<string>("");
-  const [type, setType] = useState<string>("");
+  const [type, setType] = useState<string>("Full-Time");
   const [description, setDescription] = useState<string>("");
   const [location, setLocation] = useState<string>("");
-  const [salary, setSalary] = useState<string>("");
+  const [salary, setSalary] = useState<string>("Under $50K");
   const [companyName, setCompanyName] = useState<string>("");
   const [companyDescription, setCompanyDescription] = useState<string>("");
   const [companyEmail, setCompanyEmail] = useState<string>("");
   const [companyPhone, setCompanyPhone] = useState<string>("");
 
+  const navigate = useNavigate();
+
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    const newJob: JobsInterface = {
+      title: title,
+      type: type,
+      description: description,
+      location: location,
+      salary: salary,
+      company: {
+        name: companyName,
+        description: companyDescription,
+        contactEmail: companyEmail,
+        contactPhone: companyPhone,
+      },
+    };
+    addJobSubmit(newJob);
+
+    return navigate("/jobs");
+  };
+
   return (
     <section className="bg-indigo-50">
       <div className="container m-auto max-w-2xl py-24">
         <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
-          <form>
+          <form onSubmit={submitForm}>
             <h2 className="text-3xl text-center font-semibold mb-6">Add Job</h2>
 
             <div className="mb-4">
