@@ -7,7 +7,7 @@ const JobPage: React.FC<JobPageInterface> = ({ deleteJob }) => {
   const { id } = useParams();
   const job: JobsInterface = useLoaderData() as JobsInterface;
 
-  const onDeleteClick = (idJob) => {
+  const onDeleteClick = (idJob: string | undefined) => {
     const confirm = window.confirm("Are you sure you want to delete this job?");
 
     if (!confirm) return;
