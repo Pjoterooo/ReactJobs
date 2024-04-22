@@ -26,16 +26,16 @@ const EditJobPage: React.FC<EditJobPageInterface> = ({ updateJobSubmit }) => {
 
     const updatedJob = {
       id,
-      title,
-      type,
-      location,
-      description,
-      salary,
+      title: title,
+      type: type,
+      location: location,
+      description: description,
+      salary: salary,
       company: {
         name: companyName,
         description: companyDescription,
-        contactEmail,
-        contactPhone,
+        contactEmail: contactEmail,
+        contactPhone: contactPhone,
       },
     };
 
