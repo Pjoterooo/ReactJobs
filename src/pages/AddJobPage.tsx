@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { AddJobPageInterface, JobsInterface } from "../types/types";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -17,7 +17,7 @@ const AddJobPage: React.FC<AddJobPageInterface> = ({ addJobSubmit }) => {
 
   const navigate = useNavigate();
 
-  const submitForm = (e) => {
+  const submitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const newJob: JobsInterface = {

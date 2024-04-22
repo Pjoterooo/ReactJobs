@@ -1,15 +1,15 @@
 import { JobsInterface } from "../types/types";
 
-const addJobSubmit = async (newJob: JobsInterface) => {
+const updateJobSubmit = async (job: JobsInterface) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const res = await fetch("/api/jobs", {
-    method: "POST",
+  const res = await fetch(`/api/jobs/${job.id}`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(newJob),
+    body: JSON.stringify(job),
   });
   return;
 };
 
-export default addJobSubmit;
+export default updateJobSubmit;

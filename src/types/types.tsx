@@ -1,3 +1,5 @@
+import { FormEvent } from "react";
+
 export interface JobsInterface {
   id?: string;
   title: string;
@@ -33,8 +35,12 @@ export interface JobPageInterface {
   deleteJob: (id: string | undefined) => Promise<void>;
 }
 
-export interface AddJobFormInterface{
-  submitForm: (e) => void
+export interface EditJobPageInterface {
+  updateJobSubmit: (job: JobsInterface) => Promise<void>;
+}
+
+export interface AddJobFormInterface {
+  submitForm: (e: FormEvent<HTMLFormElement>) => void;
   title: string;
   setTitle: React.Dispatch<React.SetStateAction<string>>;
   type: string;

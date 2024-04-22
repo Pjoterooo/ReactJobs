@@ -13,6 +13,8 @@ import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
 import addJobSubmit from "./helper/addJobSubmit";
 import deleteJob from "./helper/deleteJob";
+import EditJobPage from "./pages/EditJobPage";
+import updateJobSubmit from "./helper/updateJobSubmit";
 
 function App() {
   const router = createBrowserRouter(
@@ -27,6 +29,11 @@ function App() {
         <Route
           path="/jobs/:id"
           element={<JobPage deleteJob={deleteJob} />}
+          loader={jobLoader}
+        />
+        <Route
+          path="/jobs/edit/:id"
+          element={<EditJobPage updateJobSubmit={updateJobSubmit} />}
           loader={jobLoader}
         />
         <Route path="*" element={<NotFoundPage />} />
