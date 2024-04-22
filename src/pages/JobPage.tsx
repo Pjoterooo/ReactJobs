@@ -1,10 +1,20 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams, useNavigate } from "react-router-dom";
 import { JobPageInterface, JobsInterface } from "../types/types";
 import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
 
-const JobPage:React.FC<JobPageInterface> = ({ deleteJob }) => {
+const JobPage: React.FC<JobPageInterface> = ({ deleteJob }) => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const job: JobsInterface = useLoaderData() as JobsInterface;
+
+  const onDeleteClick = (idJob) => {
+    const confirm = window.confirm("Are you sure you want to delete this job?");
+
+    if (!confirm) return;
+    deleteJob(idJob);
+    navigate('/jobs')
+  };
+
   return (
     <>
       <>
@@ -80,7 +90,7 @@ const JobPage:React.FC<JobPageInterface> = ({ deleteJob }) => {
                   </Link>
                   <button
                     className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
-                    onClick={() => deleteJob(job.id)}
+                    onClick={() => onDeleteClick(job.id)}
                   >
                     Delete Job
                   </button>
