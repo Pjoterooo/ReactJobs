@@ -1,7 +1,6 @@
 import React, { FormEvent } from "react";
 import { useState } from "react";
 import { useParams, useLoaderData, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { EditJobPageInterface, JobsInterface } from "../types/types";
 
 const EditJobPage: React.FC<EditJobPageInterface> = ({ updateJobSubmit }) => {
@@ -40,8 +39,6 @@ const EditJobPage: React.FC<EditJobPageInterface> = ({ updateJobSubmit }) => {
     };
 
     updateJobSubmit(updatedJob);
-
-    toast.success("Job Updated Successfully");
 
     return navigate(`/jobs/${id}`);
   };

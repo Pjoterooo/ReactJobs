@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { JobsInterface } from "../types/types";
 
 const addJobSubmit = async (newJob: JobsInterface) => {
@@ -9,6 +10,11 @@ const addJobSubmit = async (newJob: JobsInterface) => {
     },
     body: JSON.stringify(newJob),
   });
+  if (res.ok) {
+    toast.success("Job added Successfully");
+  } else {
+    toast.error("Job added Error");
+  }
   return;
 };
 

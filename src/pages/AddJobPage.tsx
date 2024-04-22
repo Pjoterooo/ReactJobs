@@ -1,7 +1,6 @@
 import { FormEvent, useState } from "react";
 import { AddJobPageInterface, JobsInterface } from "../types/types";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import AddJobForm from "../components/AddJobForm/AddJobForm";
 
 const AddJobPage: React.FC<AddJobPageInterface> = ({ addJobSubmit }) => {
@@ -34,7 +33,6 @@ const AddJobPage: React.FC<AddJobPageInterface> = ({ addJobSubmit }) => {
       },
     };
     addJobSubmit(newJob);
-    toast.success(`Job added successfully`);
     return navigate("/jobs");
   };
 

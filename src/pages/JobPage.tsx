@@ -1,7 +1,6 @@
 import { Link, useLoaderData, useParams, useNavigate } from "react-router-dom";
 import { JobPageInterface, JobsInterface } from "../types/types";
 import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
-import { toast } from "react-toastify";
 
 const JobPage: React.FC<JobPageInterface> = ({ deleteJob }) => {
   const navigate = useNavigate();
@@ -10,10 +9,8 @@ const JobPage: React.FC<JobPageInterface> = ({ deleteJob }) => {
 
   const onDeleteClick = (idJob: string | undefined) => {
     const confirm = window.confirm("Are you sure you want to delete this job?");
-
     if (!confirm) return;
     deleteJob(idJob);
-    toast.success(`Job deleted successfully`);
     navigate("/jobs");
   };
 
