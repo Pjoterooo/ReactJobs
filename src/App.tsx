@@ -11,27 +11,10 @@ import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
-import { JobsInterface } from "./types/types";
+import addJobSubmit from "./helper/addJobSubmit";
+import deleteJob from "./helper/deleteJob";
 
 function App() {
-  const addJobSubmit = async (newJob: JobsInterface) => {
-    const res = await fetch("/api/jobs", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newJob),
-    });
-    return;
-  };
-
-  const deleteJob = async (id: string | undefined) => {
-    const res = await fetch(`/api/jobs/${id}`, {
-      method: "DELETE",
-    });
-    return;
-  };
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
