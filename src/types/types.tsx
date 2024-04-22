@@ -30,5 +30,5 @@ export interface AddJobPageInterface {
 }
 
 export interface JobPageInterface {
-  deleteJob: (id: JobPageInterface) => Promise<void>;
+  deleteJob: (id: string | undefined) => Promise<void>;
 }

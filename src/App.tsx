@@ -11,7 +11,7 @@ import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
-import { JobPageInterface, JobsInterface } from "./types/types";
+import { JobsInterface } from "./types/types";
 
 function App() {
   const addJobSubmit = async (newJob: JobsInterface) => {
@@ -25,7 +25,7 @@ function App() {
     return;
   };
 
-  const deleteJob = async (id: JobPageInterface) => {
+  const deleteJob = async (id: string | undefined) => {
     console.log("deleted: " + id);
   };
 
