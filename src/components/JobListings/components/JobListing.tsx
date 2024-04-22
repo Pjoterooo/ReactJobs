@@ -8,7 +8,7 @@ const JobListing: React.FC<JobListingInterface> = ({ job }) => {
 
   let description = job.description;
   if (showFullDescription === false) {
-    description = description.substring(0, 100) + "...";
+    description = description.substring(0, 80) + "...";
   }
 
   return (
@@ -19,7 +19,7 @@ const JobListing: React.FC<JobListingInterface> = ({ job }) => {
           <h3 className="text-xl font-bold">{job.title}</h3>
         </div>
 
-        <div className="mb-5">{description}</div>
+        <div className="mb-5 break-words">{description}</div>
 
         <button
           onClick={() => setShowFullDescription(!showFullDescription)}
