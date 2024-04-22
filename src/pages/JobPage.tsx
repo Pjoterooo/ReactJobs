@@ -1,8 +1,8 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import { JobsInterface } from "../types/types";
+import { JobPageInterface, JobsInterface } from "../types/types";
 import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
 
-const JobPage = () => {
+const JobPage:React.FC<JobPageInterface> = ({ deleteJob }) => {
   const { id } = useParams();
   const job: JobsInterface = useLoaderData() as JobsInterface;
   return (
@@ -78,7 +78,10 @@ const JobPage = () => {
                   >
                     Edit Job
                   </Link>
-                  <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
+                  <button
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                    onClick={() => deleteJob(id)}
+                  >
                     Delete Job
                   </button>
                 </div>

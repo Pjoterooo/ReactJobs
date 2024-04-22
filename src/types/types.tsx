@@ -28,3 +28,7 @@ export interface SpinnerInterface {
 export interface AddJobPageInterface {
   addJobSubmit: (newJob: JobsInterface) => void;
 }
+
+export interface JobPageInterface {
+  deleteJob: (id: JobPageInterface) => Promise<void>;
+}

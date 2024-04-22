@@ -11,7 +11,7 @@ import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
-import { JobsInterface } from "./types/types";
+import { JobPageInterface, JobsInterface } from "./types/types";
 
 function App() {
   const addJobSubmit = async (newJob: JobsInterface) => {
@@ -25,6 +25,10 @@ function App() {
     return;
   };
 
+  const deleteJob = async (id: JobPageInterface) => {
+    console.log("deleted: " + id);
+  };
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
@@ -34,8 +38,11 @@ function App() {
           path="/add-job"
           element={<AddJobPage addJobSubmit={addJobSubmit} />}
         />
-        <Route path="/jobs/:id" element={<JobPage />} loader={jobLoader} />
-
+        <Route
+          path="/jobs/:id"
+          element={<JobPage deleteJob={deleteJob} />}
+          loader={jobLoader}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
