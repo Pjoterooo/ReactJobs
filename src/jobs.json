@@ -111,20 +111,6 @@
         "contactEmail": "email@testemail.email",
         "contactPhone": "test-test-444"
       }
-    },
-    {
-      "id": "0905",
-      "title": "jolo",
-      "type": "Remote",
-      "location": "csgo",
-      "description": "siema",
-      "salary": "Under $50K",
-      "company": {
-        "name": "lol",
-        "description": "idk",
-        "contactEmail": "dupa@elo.bum",
-        "contactPhone": "999-000-111"
-      }
     }
   ]
 }

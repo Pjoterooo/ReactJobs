@@ -11,6 +11,7 @@ import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
+import Test from "./pages/Test";
 import addJobSubmit from "./helper/addJobSubmit";
 import deleteJob from "./helper/deleteJob";
 import EditJobPage from "./pages/EditJobPage";
@@ -36,6 +37,7 @@ function App() {
           element={<EditJobPage updateJobSubmit={updateJobSubmit} />}
           loader={jobLoader}
         />
+        <Route path="/test" element={<Test />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
