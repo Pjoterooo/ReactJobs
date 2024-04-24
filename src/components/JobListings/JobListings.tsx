@@ -15,7 +15,7 @@ export const JobListings: React.FC<JobListingsInterface> = ({ isHome }) => {
         const data = await res.json();
         setJobs(data);
       } catch (error) {
-        console.log("error fetching data");
+        console.log("error fetching jobs");
       } finally {
         setLoading(false);
       }
